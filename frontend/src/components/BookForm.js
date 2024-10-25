@@ -40,11 +40,12 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
     setAuthor("");
     setComment("");
     setStatus("");
-    navigate("/");
+    navigate("/bookList");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <h4>{selectedBook ? "Update Book" : "Add Book"}</h4>
       <input
         type="text"
         value={BookName}

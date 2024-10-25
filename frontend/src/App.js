@@ -42,7 +42,7 @@ const App = () => {
         <h1>Library Management</h1>
 
         <nav className="nav">
-          <Link to="/">Book List</Link>&nbsp;
+          <Link to="/bookList">Book List</Link>&nbsp;
           <Link
             to="/add"
             onClick={() => setSelectedBook(null)} // Reset selectedBook when adding a new book
@@ -53,7 +53,7 @@ const App = () => {
 
         <Routes>
           <Route
-            path="/"
+            path="/bookList"
             element={
               <BookList
                 books={books}
