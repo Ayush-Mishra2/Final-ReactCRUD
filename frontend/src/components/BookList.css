@@ -1,24 +1,89 @@
 .book-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .book-table th, 
-  .book-table td {
-    border: 1px solid #ddd;
-    padding: 8px; 
-    text-align: left;
-  }
-  
-  .book-table th {
-    background-color: #f2f2f2; 
-  }
-  
-  .book-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  button {
-    cursor: pointer;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-table th,
+.book-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.book-table th {
+  background-color: #f2f2f2;
+}
+
+.book-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Table container to enable scrolling */
+.table-container {
+  max-height: 300px; /* Set height to show only 3 rows */
+  overflow-y: auto; /* Enables vertical scrolling */
+  margin: 20px auto; /* Center table container */
+  border: 1px solid #ddd; /* Optional border around the table container */
+  border-radius: 5px;
+  background-color: #dcdcd3;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #73a3ad;
+  color: rgb(245, 239, 225);
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f8f2f7;
+}
+
+.update-button {
+  background-color: #4caf50; /* Green for update button */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 8px 12px; /* Padding for the button */
+  margin-right: 5px; /* Spacing between buttons */
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.update-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.delete-button {
+  background-color: #f43685; /* Red for delete button */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 8px 12px; /* Padding for the button */
+  cursor: pointer; /* Cursor pointer */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.delete-button:hover {
+  background-color: #e53935; /* Darker red on hover */
+}

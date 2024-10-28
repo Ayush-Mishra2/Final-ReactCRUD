@@ -11,7 +11,6 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
   const [Status, setStatus] = useState("");
   const navigate = useNavigate();
 
-  // Use useEffect to populate the form fields when editing
   useEffect(() => {
     if (selectedBook) {
       setBookName(selectedBook.BookName || "");
@@ -24,13 +23,30 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const bookData = { BookName, Description, Author, Comment, Status };
+
+    // Trim whitespace and check if any field is empty after trimming
+    if (
+      !BookName.trim() ||
+      !Description.trim() ||
+      !Author.trim() ||
+      !Comment.trim() ||
+      !Status
+    ) {
+      alert("Please fill in all fields without spaces.");
+      return;
+    }
+
+    const bookData = {
+      BookName: BookName.trim(),
+      Description: Description.trim(),
+      Author: Author.trim(),
+      Comment: Comment.trim(),
+      Status,
+    };
 
     if (selectedBook) {
-      // Update existing book
       await updateBook(selectedBook._id, bookData);
     } else {
-      // Add new book
       await axios.post("http://localhost:5000/books", bookData);
     }
 
@@ -43,53 +59,70 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
     navigate("/bookList");
   };
 
+  const handleCancel = () => {
+    navigate("/bookList");
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>{selectedBook ? "Update Book" : "Add Book"}</h4>
-      <input
-        type="text"
-        value={BookName}
-        onChange={(e) => setBookName(e.target.value)}
-        placeholder="Book Name"
-        required
-      />
-      &nbsp;
-      <input
-        type="text"
-        value={Description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-        required
-      />
-      &nbsp;
-      <input
-        type="text"
-        value={Author}
-        onChange={(e) => setAuthor(e.target.value)}
-        placeholder="Author"
-        required
-      />
-      &nbsp;
-      <input
-        type="text"
-        value={Comment}
-        onChange={(e) => setComment(e.target.value)}
-        placeholder="Comment"
-        required
-      />
-      &nbsp;
-      <select
-  value={Status}
-  onChange={(e) => setStatus(e.target.value)}
-  required
->
-  <option value="" disabled>Select Status</option>
-  <option value="Available">Available</option>
-  <option value="Borrowed">Borrowed</option>
-</select>
-      &nbsp;
-      <button type="submit">{selectedBook ? "Update Book" : "Add Book"}</button>
-    </form>
+    <div className="form-container">
+      {" "}
+      {/* Add this div */}
+      <form onSubmit={handleSubmit}>
+        <h4>{selectedBook ? "Update Book" : "Add Book"}</h4>
+        <input
+          type="text"
+          value={BookName}
+          onChange={(e) => setBookName(e.target.value)}
+          placeholder="Book Name"
+          required
+        />
+        &nbsp;
+        <input
+          type="text"
+          value={Description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description"
+          required
+        />
+        &nbsp;
+        <input
+          type="text"
+          value={Author}
+          onChange={(e) => setAuthor(e.target.value)}
+          placeholder="Author"
+          required
+        />
+        &nbsp;
+        <input
+          type="text"
+          value={Comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Comment"
+          required
+        />
+        &nbsp;
+        <select
+          value={Status}
+          onChange={(e) => setStatus(e.target.value)}
+          required
+        >
+          <option value="" disabled>
+            Select Status
+          </option>
+          <option value="Available">Available</option>
+          <option value="Borrowed">Borrowed</option>
+        </select>
+        &nbsp;
+        <div className="button-group">
+          <button type="submit">
+            {selectedBook ? "Update Book" : "Add Book"}
+          </button>
+          <button type="button" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

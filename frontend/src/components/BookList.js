@@ -6,13 +6,13 @@ const BookList = ({ books, deleteBook, setSelectedBook }) => {
 
   const handleUpdate = (book) => {
     setSelectedBook(book); // Set the selected book for editing
-    navigate("/add"); // Navigate to the add/edit form
+    navigate("/addBook"); // Navigate to the add/edit form
   };
 
   return (
-    <div>
+    <div className="table-container">
       <h2>Books:</h2>
-      <table className="book-table">
+      <table>
         <thead>
           <tr>
             <th>Book Name</th>
@@ -32,8 +32,19 @@ const BookList = ({ books, deleteBook, setSelectedBook }) => {
               <td>{book.Comment}</td>
               <td>{book.Status}</td>
               <td>
-                <button onClick={() => handleUpdate(book)}>Update</button>
-                <button onClick={() => deleteBook(book._id)} style={{ marginLeft: '8px' }}>Delete</button>
+                <button
+                  className="update-button"
+                  onClick={() => handleUpdate(book)}
+                >
+                  Update
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteBook(book._id)}
+                  style={{ marginLeft: "8px" }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
