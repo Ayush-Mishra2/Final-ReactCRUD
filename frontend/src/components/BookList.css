@@ -60,30 +60,30 @@ tr:hover {
 }
 
 .update-button {
-  background-color: #4caf50; /* Green for update button */
-  color: white; /* Text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 8px 12px; /* Padding for the button */
-  margin-right: 5px; /* Spacing between buttons */
-  cursor: pointer; /* Cursor pointer */
-  transition: background-color 0.3s; /* Smooth transition */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .update-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
 }
 
 .delete-button {
-  background-color: #f43685; /* Red for delete button */
-  color: white; /* Text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 8px 12px; /* Padding for the button */
-  cursor: pointer; /* Cursor pointer */
-  transition: background-color 0.3s; /* Smooth transition */
+  background-color: #f43685;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .delete-button:hover {
-  background-color: #e53935; /* Darker red on hover */
+  background-color: #e53935;
 }

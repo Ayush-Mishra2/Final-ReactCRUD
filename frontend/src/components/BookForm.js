@@ -24,7 +24,6 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Trim whitespace and check if any field is empty after trimming
     if (
       !BookName.trim() ||
       !Description.trim() ||
@@ -66,7 +65,7 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
   return (
     <div className="form-container">
       {" "}
-      {/* Add this div */}
+      {}
       <form onSubmit={handleSubmit}>
         <h4>{selectedBook ? "Update Book" : "Add Book"}</h4>
         <input

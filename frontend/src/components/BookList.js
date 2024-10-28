@@ -5,8 +5,8 @@ const BookList = ({ books, deleteBook, setSelectedBook }) => {
   const navigate = useNavigate();
 
   const handleUpdate = (book) => {
-    setSelectedBook(book); // Set the selected book for editing
-    navigate("/addBook"); // Navigate to the add/edit form
+    setSelectedBook(book);
+    navigate("/addBook");
   };
 
   return (
